@@ -1,10 +1,10 @@
-# 🎧 Audio-Based Music Recommendation System
+# Music Recommendation System
 
 A KNN-based content recommendation engine that suggests similar songs based on audio features extracted from `.wav` files. This system analyzes the raw audio to identify sonic similarity and recommends tracks accordingly.
 
 ---
 
-## 🚀 Features
+##  Features
 
 - Extracts 27+ audio features using `librosa` (chroma, MFCCs, tempo, etc.)
 - Uses a trained K-Nearest Neighbors (KNN) model to find similar tracks
@@ -14,7 +14,7 @@ A KNN-based content recommendation engine that suggests similar songs based on a
 
 ---
 
-## 🧠 Tech Stack
+##  Tech Stack
 
 - Python 3.x
 - `librosa` – Audio processing
@@ -25,7 +25,7 @@ A KNN-based content recommendation engine that suggests similar songs based on a
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 music-recommender/
@@ -41,7 +41,7 @@ music-recommender/
 
 ---
 
-## 📊 Features Extracted
+##  Features Extracted
 
 - **Chroma STFT**
 - **RMS Energy**
@@ -52,7 +52,7 @@ music-recommender/
 
 ---
 
-## 🔍 How It Works
+##  How It Works
 
 1. Load your trained model (`knn_model.joblib`) and feature column list
 2. Upload a song file (.wav)
@@ -63,7 +63,7 @@ music-recommender/
 
 ---
 
-## 💻 How to Run
+##  How to Run
 
 1. **Clone the repository**
 
@@ -88,7 +88,7 @@ python music_recommender.py
 
 ---
 
-## 📈 Sample Output
+##  Sample Output
 
 ![Recommendation Result](./sample_output.png)
 
@@ -96,7 +96,7 @@ python music_recommender.py
 
 ---
 
-## 🧠 Future Improvements
+##  Future Improvements
 
 - Add real-time audio support (microphone input)
 - Switch to cosine similarity or deep learning models
@@ -105,14 +105,14 @@ python music_recommender.py
 
 ---
 
-## 📬 Contact
+##  Contact
 
 For queries, feedback, or collaboration, reach out at:  
 📧 **bhavye.23fe10cds00128@muj.manipal.edu**
 
 ---
 
-## 🪪 License
+##  License
 
 This project is open-sourced under the [MIT License](LICENSE).
 
