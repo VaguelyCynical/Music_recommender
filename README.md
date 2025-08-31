@@ -1,26 +1,27 @@
-# 🎧 Content-Based Music Recommendation System
+# 🎧 Audio-Based Music Recommendation System
 
-A content-based music recommendation engine that suggests similar songs based on audio features extracted from raw `.wav` files. This system avoids relying on user preferences or collaborative filtering, instead using mathematical analysis of audio signals to find sonic similarity between tracks.
+A KNN-based content recommendation engine that suggests similar songs based on audio features extracted from `.wav` files. This system analyzes the raw audio to identify sonic similarity and recommends tracks accordingly.
 
 ---
 
 ## 🚀 Features
 
-- Extracts audio features using `librosa`
-- Calculates similarity between tracks using cosine distance
-- Supports multiple genres and audio formats
-- Visualizes feature space with PCA and t-SNE
-- Modular pipeline for feature extraction, normalization, and recommendation
+- Extracts 27+ audio features using `librosa` (chroma, MFCCs, tempo, etc.)
+- Uses a trained K-Nearest Neighbors (KNN) model to find similar tracks
+- Scales input features using `StandardScaler`
+- Visualizes top-N recommendations by genre
+- Works on raw audio files without needing metadata or user preferences
 
 ---
 
 ## 🧠 Tech Stack
 
 - Python 3.x
-- `librosa` – Audio feature extraction
-- `NumPy`, `pandas` – Data manipulation
-- `scikit-learn` – Model building and PCA
-- `Matplotlib`, `seaborn` – Visualizations
+- `librosa` – Audio processing
+- `scikit-learn` – Model training and scaling
+- `joblib` – Model serialization
+- `pandas`, `NumPy` – Data handling
+- `matplotlib`, `seaborn` – Visualization
 
 ---
 
@@ -28,12 +29,13 @@ A content-based music recommendation engine that suggests similar songs based on
 
 ```
 music-recommender/
-├── music_recommender.ipynb        # Main notebook
-├── utils/
-│   └── feature_extraction.py      # Custom feature extractor (optional)
-├── dataset/
-│   └── [genre folders]/.wav       # Raw audio files
-├── requirements.txt               # Dependencies
+├── music_recommender.py           # Main script
+├── features.csv                   # Dataset with features and metadata
+├── knn_model.joblib               # Trained KNN model
+├── scaler.joblib                  # Fitted StandardScaler
+├── feature_cols.pkl               # List of selected feature columns
+├── output_recommendation.png      # Sample visualization
+├── requirements.txt               # Python dependencies
 └── README.md                      # Project documentation
 ```
 
@@ -41,21 +43,23 @@ music-recommender/
 
 ## 📊 Features Extracted
 
-- **Chroma Frequencies**
-- **Spectral Centroid**
-- **Spectral Rolloff**
+- **Chroma STFT**
+- **RMS Energy**
+- **Spectral Centroid, Bandwidth, Rolloff**
 - **Zero Crossing Rate**
-- **MFCCs (Mel-Frequency Cepstral Coefficients)**
-- **Tempo/BPM**
+- **Tempo (BPM)**
+- **MFCCs 1–20**
 
 ---
 
 ## 🔍 How It Works
 
-1. Extracts features from raw audio using `librosa`
-2. Normalizes and stores feature vectors
-3. Calculates cosine similarity between tracks
-4. Recommends top-N similar tracks to the input
+1. Load your trained model (`knn_model.joblib`) and feature column list
+2. Upload a song file (.wav)
+3. Extract features using `librosa`
+4. Scale the extracted features
+5. Use KNN to find and recommend similar songs from the dataset
+6. Display results in a genre-wise bar plot
 
 ---
 
@@ -74,25 +78,30 @@ cd music-recommender
 pip install -r requirements.txt
 ```
 
-3. **Run the notebook**
+3. **Run the script**
 
-Open `music_recommender.ipynb` and follow the steps inside.
+```bash
+python music_recommender.py
+```
+
+4. **Enter path to your `.wav` file** and receive top recommendations.
 
 ---
 
 ## 📈 Sample Output
 
-![Recommendation Matrix](./sample_output.png)  
-*Above: Cosine similarity matrix of selected tracks.*
+![Recommendation Result](./sample_output.png)
+
+*Above: Visualization of recommended songs categorized by genre based on audio similarity.*
 
 ---
 
 ## 🧠 Future Improvements
 
-- Add genre-based filtering
-- Improve feature ranking using supervised models
-- Integrate with Spotify API for real-time suggestions
-- Build a Streamlit web UI
+- Add real-time audio support (microphone input)
+- Switch to cosine similarity or deep learning models
+- Build a Streamlit or Gradio-based web app
+- Integrate Spotify API for live song queries
 
 ---
 
