@@ -82,7 +82,7 @@ Open `music_recommender.ipynb` and follow the steps inside.
 
 ## 📈 Sample Output
 
-![Recommendation Matrix](https://fakeimg.pl/350x200/?text=Similarity+Matrix&font=lobster)  
+![Recommendation Matrix](./sample_output.png)  
 *Above: Cosine similarity matrix of selected tracks.*
 
 ---
