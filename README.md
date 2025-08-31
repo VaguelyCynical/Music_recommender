@@ -68,7 +68,7 @@ music-recommender/
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/yourusername/music-recommender.git
+git clone https://github.com/VaguelyCynical/Music_recommender.git
 cd music-recommender
 ```
 
